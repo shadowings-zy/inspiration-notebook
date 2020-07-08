@@ -85,7 +85,7 @@ public class NoteService {
             }
         }
 
-        String documentName = branchArrayList.get(0).getNotebookName() + "-" + new Date().getTime();
+        String documentName = branchArrayList.get(0).getNotebookName().hashCode() + "-" + new Date().getTime();
         Tools.generateFile(documentName, markdownContent.toString());
         return new ResponseMessage("200", "生成笔记成功", documentName + ".zip");
     }

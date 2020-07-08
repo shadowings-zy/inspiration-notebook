@@ -86,6 +86,7 @@
     updateNote,
     getDocument
   } from "../../../api"
+  import config from "../../../../config.json"
 
   export default {
     components: {Document},
@@ -146,11 +147,12 @@
       // 选择要生成的章节
       handleDownloadNoteSelect(notebook) {
         this.modalShow = true
+        this.selectGenerateDocumentNoteList = []
         this.$store.commit('setSelectedNotebook', notebook)
       },
-      // 下载当前笔记本下的所有笔记
+      // 下载当前笔记本下的笔记
       handleDownloadNotebook() {
-        let baseUrl = "http://www.shadowingszy.top:3001/inspiration-notebook/markdown/"
+        let baseUrl = config.downloadZipUrl
         let order = []
         for (const noteName of this.selectGenerateDocumentNoteList) {
           for (const note of this.$store.state.selectedNotebook.noteArrayList) {

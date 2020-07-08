@@ -1,5 +1,6 @@
 const path = require('path')
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
+const config = require("./config.json")
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 
 const resolve = dir => {
@@ -17,7 +18,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://www.shadowingszy.top/inspiration-notebook/',
+        target: config.devServerUrl,
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

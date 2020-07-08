@@ -7,9 +7,9 @@ server:
 
 spring:
   datasource:
-    username: root
-    password: shadowings
-    url: jdbc:mysql://47.100.39.141:3306/inspiration_notebook
+    username: 填写数据库用户名
+    password: 填写数据库密码
+    url: 填写数据库url
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:

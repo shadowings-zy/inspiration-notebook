@@ -12,7 +12,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 public class Tools {
-    static String zipPath = "/www/server/node-express/public/inspiration-notebook/markdown/";
+    static String zipPath = "填写生成zip文件的存储路径";
     /**
      * 为了尽可能地少传输数据，我们在查询笔记列表时，会把所有的content都先消除掉，再返回给前端
      *
