@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: 这里填入数据库用户名
+    password: 这里填入数据库密码
+    url: 这里填入jdbc驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapping.xml
+  type-aliases-package: com.shadowingszy.notebook.entity
+
+#showSql
+logging:
+  level:
+    com:
+      shadowingszy:
+        notebook:
+          mapper: debug
+

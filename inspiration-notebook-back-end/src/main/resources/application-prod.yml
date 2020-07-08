@@ -1,0 +1,26 @@
+server:
+  port: 8081
+  compression:
+    enabled: true
+    mime-types: text/html, text/xml, text/plain,text/css, text/javascript, application/javascript, application/json,application/xml
+    min-response-size: 2048
+
+spring:
+  datasource:
+    username: root
+    password: shadowings
+    url: jdbc:mysql://47.100.39.141:3306/inspiration_notebook
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapping.xml
+  type-aliases-package: com.shadowingszy.notebook.entity
+
+#showSql
+logging:
+  level:
+    com:
+      shadowingszy:
+        notebook:
+          mapper: debug
+

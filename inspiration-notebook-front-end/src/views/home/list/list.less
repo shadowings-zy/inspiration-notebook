@@ -1,0 +1,60 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+
+  .list-header {
+    text-align: center;
+  }
+
+  .card-wrapper {
+    width: 100%;
+
+    .card-content {
+      text-align: center;
+      vertical-align: center;
+    }
+  }
+
+  &-header {
+    height: 50px;
+  }
+
+  &-body {
+    flex-grow: 1;
+  }
+
+  .ivu-card {
+    border-radius: 0;
+  }
+
+  .ivu-alert {
+    border-radius: 0;
+  }
+
+  .ivu-cell {
+    height: 56px;
+
+    .ivu-icon {
+      display: none;
+    }
+  }
+
+  .ivu-cell:hover .ivu-icon {
+    display: inline;
+  }
+}
+
+.ivu-modal-confirm-head {
+  height: 50px;
+
+  &-icon {
+    display: none;
+  }
+}
+
+.document-select-checkbox {
+  margin: 20px 0;
+}

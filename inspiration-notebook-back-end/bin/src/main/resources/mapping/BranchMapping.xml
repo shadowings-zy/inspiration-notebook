@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shadowingszy.notebook.mapper.BranchMapper">
+
+    <resultMap id="NotebookResultMap" type="com.shadowingszy.notebook.entity.Notebook">
+        <result column="branchId" jdbcType="INTEGER" property="branchId"/>
+        <result column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="notebookName" jdbcType="VARCHAR" property="notebookName"/>
+        <result column="noteName" jdbcType="VARCHAR" property="noteName"/>
+        <result column="branchName" jdbcType="VARCHAR" property="branchName"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+    </resultMap>
+
+    <insert id="insertBranch">
+        insert into branch (userId, notebookName, noteName, branchName, content, status) values (#{userId}, #{notebookName}, #{noteName}, #{branchName}, #{content}, #{status});
+    </insert>
+
+    <update id="updateNotebookName">
+        update branch set notebookName = #{newNotebookName}, status = #{status} where userId = #{userId} and notebookName = #{oldNotebookName};
+    </update>
+
+    <update id="updateNoteName">
+       update branch set noteName = #{newNoteName}, status = #{status} where userId = #{userId} and notebookName = #{notebookName} and noteName = #{oldNoteName};
+    </update>
+
+    <update id="updateBranchContent">
+        update branch set content = #{content}, status = #{status} where userId = #{userId} and branchId = #{branchId};
+    </update>
+
+    <delete id="deleteNotebook">
+        delete from branch where userId = #{userId} and notebookName = #{notebookName}
+    </delete>
+
+    <delete id="deleteNote">
+        delete from branch where userId = #{userId} and notebookName = #{notebookName} and noteName = #{noteName}
+    </delete>
+
+    <select id="selectNotebookCount" resultType="java.lang.Integer">
+        select count(branchId) from branch where userId = #{userId} and notebookName = #{notebookName}
+    </select>
+
+    <select id="selectNoteCount" resultType="java.lang.Integer">
+        select count(branchId) from branch where userId = #{userId} and notebookName = #{notebookName} and noteName = #{noteName}
+    </select>
+
+    <select id="selectBranchCount" resultType="java.lang.Integer">
+        select count(branchId) from branch where userId = #{userId} and notebookName = #{notebookName} and noteName = #{noteName} and branchName = #{branchName}
+    </select>
+
+    <select id="selectBranchByUserId" resultType="com.shadowingszy.notebook.entity.Branch">
+        select * from branch where userId = #{userId}
+    </select>
+
+    <select id="selectBranchByNotebookName" resultType="com.shadowingszy.notebook.entity.Branch">
+        select * from branch where userId = #{userId} and notebookName = #{notebookName}
+    </select>
+
+    <select id="selectBranchByNoteName" resultType="com.shadowingszy.notebook.entity.Branch">
+        select * from branch where userId = #{userId} and notebookName = #{notebookName} and noteName = #{noteName}
+    </select>
+
+    <select id="selectBranchByBranchId" resultType="com.shadowingszy.notebook.entity.Branch">
+        select * from branch where userId = #{userId} and branchId = #{branchId}
+    </select>
+
+    <select id="selectBranchByKeywords" resultType="com.shadowingszy.notebook.entity.Branch">
+        select * from branch where userId = #{userId} and (content like "%"#{keywords}"%" or noteName like "%"#{keywords}"%")
+    </select>
+</mapper>
+

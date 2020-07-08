@@ -1,0 +1,66 @@
+.markdown-editor-navigator {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  border: 1px solid #DDDDDD;
+  /*background-color: #E0E0E0;*/
+
+  .navigator-item-left {
+    width: 50%;
+
+    .navigator-item {
+      margin-left: 20px;
+    }
+  }
+
+  .navigator-item-right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
+
+  .navigator-title {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.markdown-editor-content {
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 80px);
+  background-color: #F8F8F8;
+
+  #overview-field {
+    border: 1px solid #DDDDDD;
+    padding: 1%;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+
+    .overview-line {
+      margin-bottom: 8px;
+    }
+  }
+
+  #edit-field {
+    width: 50%;
+    height: 100%;
+
+    textarea.ivu-input {
+      border-radius: 0 !important;
+      height: 100% !important;
+    }
+  }
+}
+
+.markdown-editor-status {
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  background-color: #656565;
+  color: white;
+  padding: 0 10px;
+}
